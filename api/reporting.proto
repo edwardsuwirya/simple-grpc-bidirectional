@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package = "../api";
+
+service Reporting {
+  rpc GenerateStatement (stream Request) returns (stream Response) {}
+}
+
+message Request {
+  string clientId = 1;
+}
+
+message Response {
+  string result = 1;
+}
